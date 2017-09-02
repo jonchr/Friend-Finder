@@ -1,155 +1,253 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>PawPal</title>
-	<!-- Link for pawprint -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
-	<!-- JQuery Core 3.2.1 minified -->
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <title>PawPal</title>
+    
+    <!-- Link for pawprint -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <!-- JQuery Core 3.2.1 minified -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+    	.modal-dialog {
+    		width: 500px;
+    	}
+		#friend-name {
+			margin-top: 0px;
+		}
+		#friend-pic {
+			width: 450px;
+			margin: auto;
+		}
+		#friend-compat {
+			font-style: italic;
+			font-size: 20px;
+			margin: 10 auto 0px;
+		}
+
+    </style>
 </head>
+
 <body>
+    <div class="container">
+        <h1><i class="fa fa-paw"></i> Survey Questions</h1>
+        
+        <hr>
+        
+        <h4>Name</h4>
+        <input type="text" id="name" class="form-control">
+        <h4>Breed</h4>
+        <input type="text" id="breed" class="form-control">
+        <h4>Photo</h4>
+        <input type="text" id="photo" class="form-control">
+        
+        <hr>
 
-	<div class="container">
-
-		<h1><i class="fa fa-paw"></i> Survey Questions</h1>
-		
-		<hr>
-		
-		<h4>Name</h4>
-		<input type="text" id="name" class="form-control" >
-
-		<h4>Link to Photo From 5 Years Ago</h4>
-		<input type="text" id="profile" class="form-control" >	
-		
-		<hr>
-
-		<h3>Question 1</h3>
-		<h4>BS Question 1.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        <h3>Question 1</h3>
+        <!-- Romantic/Conscientious + -->
+        <h4>I like long walks on the beach.</h4>
+        <select id="q1">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-      	<h3>Question 2</h3>
-		<h4>BS Question 2.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 2</h3>
+        <!-- Openness + -->
+        <h4>I'm usually up for whatever those around me want to do.</h4>
+        <select id="q2">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-			
-		<h3>Question 3</h3>
-		<h4>BS Question 3.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 3</h3>
+        <!-- Extroversion - -->
+        <h4>My ideal friday night is snuggling on the couch with my boo.</h4>
+        <select id="q3">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 4</h3>
-		<h4>BS Question 4.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 4</h3>
+        <!-- Agreeableness - -->
+        <h4>I stand my ground in front of others regardless of their thoughts or actions.</h4>
+        <select id="q4">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 5</h3>
-		<h4>BS Question 5.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 5</h3>
+        <!-- Neuroticism - -->
+        <h4>Things around me are outside my control - I just roll with it.</h4>
+        <select id="q5">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 6</h3>
-		<h4>BS Question 6.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 6</h3>
+        <!-- Openness - -->
+        <h4>I prefer sticking to a schedule of my favorite activities.</h4>
+        <select id="q6">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 7</h3>
-		<h4>BS Question 7.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 7</h3>
+        <!-- Conscientiousness - -->
+        <h4>I need constant stimulation, lest I get stuck in my head.</h4>
+        <select id="q7">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 8</h3>
-		<h4>BS Question 8.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 8</h3>
+        <!-- Extroversion + -->
+        <h4>I love being out and active at the park.</h4>
+        <select id="q8">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 9</h3>
-		<h4>BS Question 9.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+        
+        <h3>Question 9</h3>
+        <!-- Agreeableness + -->
+        <h4>I prefer peaceful relationships - no yelling or biting.</h4>
+        <select id="q9">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-
-  		<h3>Question 10</h3>
-		<h4>BS Question 10.</h4>
-	 	<select id="q1">
-	 		<option value="Select Answer"></option>
+        </select>
+       
+        <h3>Question 10</h3>
+        <!-- Neuroticism + -->
+        <h4>I need to know what's going on around my home.</h4>
+        <select id="q10">
+            <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
-			<option value="4">4</option>
+            <option value="4">4</option>
             <option value="3">3</option>
-			<option value="2">2</option>
+            <option value="2">2</option>
             <option value="1">1 (Strongly Disagree)</option>
-      	</select>
-		
-		<hr>
+        </select>
+        
+        <hr>
+        
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit" data-target="#myModal">Find Your Friend!</button>
+        <hr>
+        
+        <!-- Modal copied and modified from bootstrap -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Congratulations! You have been matched!</h4>
+                    </div>
+                    <div class="modal-body">
 
-      	<button type="submit" class="btn btn-primary btn-lg btn-block" id="submit">Find Your Friend!</button>
-		
-		<hr>
+						<h3 id="friend-name"></h3>
+						<p id="friend-breed"></p>
+						<img src="" alt="friend's picture" id="friend-pic" align="middle">
+						<p>You are <span id="friend-compat"></span> compatible!!!</p>
 
-	    <footer class="footer">
-        	<a href="/api/friends">API Breeds List</a> | <a href="https://github.com/jonchr/friend-finder">GitHub Repo</a>
-	    </footer>
-		<br><br>
-	</div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        
+        <footer class="footer">
+            <a href="/api/friends">API Breeds List</a> | <a href="https://github.com/jonchr/friend-finder">GitHub Repo</a>
+        </footer>
+        
+        <!-- Extra space at the bottom of the page -->
+        <br>
+        <br>
+    </div>
+    
+    <script type="text/javascript">
+    // When the submit button is clicked, submits the entry to the server, and creates a modal with the returned response
+    $("#submit").on("click", function(event) {
 
+        event.preventDefault();
+
+        var newEntry = {
+            name: $("#name").val().trim(),
+            breed: $("#breed").val().trim(),
+            photo: $("#photo").val().trim(),
+            scores: [parseInt($("#q1").val()),
+                parseInt($("#q2").val()),
+                parseInt($("#q3").val()),
+                parseInt($("#q4").val()),
+                parseInt($("#q5").val()),
+                parseInt($("#q6").val()),
+                parseInt($("#q7").val()),
+                parseInt($("#q8").val()),
+                parseInt($("#q9").val()),
+                parseInt($("#q10").val())
+            ]
+        };
+
+        console.log(newEntry);
+
+        $.post("/api/friends", newEntry, function(data) {
+        	console.log(data);
+            $("#friend-name").text(data.name);
+            $("#friend-breed").text("Breed: " + data.breed);
+            $("#friend-pic").attr("src", data.photo);
+            $("#friend-compat").text(data.compatibility);
+            $("#modal").modal();
+        });
+
+    });
+    </script>
 </body>
+
 </html>

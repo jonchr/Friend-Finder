@@ -1,5 +1,5 @@
 {
-  "name": "Fetch-Finder",
+  "name": "Friend-Finder",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,13 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jonchr/Fetch-Finder.git"
+    "url": "git+https://github.com/jonchr/Friend-Finder.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jonchr/Fetch-Finder/issues"
+    "url": "https://github.com/jonchr/Friend-Finder/issues"
   },
-  "homepage": "https://github.com/jonchr/Fetch-Finder#readme"
+  "homepage": "https://github.com/jonchr/Friend-Finder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "path": "^0.12.7"
+  }
 }
