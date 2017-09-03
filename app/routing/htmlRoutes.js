@@ -12,6 +12,11 @@ function htmlRouting(app) {
 	  res.sendFile(path.join(__dirname, "../public/survey.html"));
 	});
 
+	//Console logs the passed information
+	app.post("/print", function(req, res) {
+		for (var i in req.body.message) console.log(req.body.message[i]);
+	});
+
 }
 
 module.exports = htmlRouting;

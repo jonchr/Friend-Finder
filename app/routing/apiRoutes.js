@@ -15,6 +15,9 @@ function apiRouting(app) {
 		
 		//Console Logs the passed object in the node console
 		var newEntry = req.body
+		//Converts the scores from strings to ints
+		for(var i in req.body.scores) req.body.scores[i] = parseInt(req.body.scores[i]);
+		
 		console.log(newEntry);
 		
 		//Stores the submitted scores

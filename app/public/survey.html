@@ -17,6 +17,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <style>
+    	/*Formatting for the modal and its components & text*/
+    	a {
+    		color: black;
+    	}
     	.modal-dialog {
     		width: 500px;
     	}
@@ -31,17 +35,28 @@
 			font-style: italic;
 			font-size: 20px;
 			margin: 10 auto 0px;
+			animation: rainbow 6s ease infinite;
 		}
-
+		@keyframes rainbow { 
+			0% {color: #ff2400;}
+			11% {color: #e81d1d;}
+			22% {color: #e8b71d;}
+			33% {color: #e3e81d;}
+			44% {color: #1de840;}
+			55% {color: #1ddde8;}
+			66% {color: #2b1de8;}
+			77% {color: #dd00f3;}
+			88% {color: #dd00f3;}
+		}
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1><i class="fa fa-paw"></i> Survey Questions</h1>
+        <h1><a href="/"><i class="fa fa-paw"></i></a> Survey Questions</h1>
         
         <hr>
-        
+        <!-- Text input boxes -->
         <h4>Name</h4>
         <input type="text" id="name" class="form-control">
         <h4>Breed</h4>
@@ -50,7 +65,7 @@
         <input type="text" id="photo" class="form-control">
         
         <hr>
-
+		<!-- Dropdown question form -->
         <h3>Question 1</h3>
         <!-- Romantic/Conscientious + -->
         <h4>I like long walks on the beach.</h4>
@@ -89,7 +104,7 @@
         
         <h3>Question 4</h3>
         <!-- Agreeableness - -->
-        <h4>I stand my ground in front of others regardless of their thoughts or actions.</h4>
+        <h4>I stand my ground in front of others regardless of what they'll think or do.</h4>
         <select id="q4">
             <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
@@ -137,7 +152,7 @@
         
         <h3>Question 8</h3>
         <!-- Extroversion + -->
-        <h4>I love being out and active at the park.</h4>
+        <h4>I prefer being out and active at the park.</h4>
         <select id="q8">
             <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
@@ -149,7 +164,7 @@
         
         <h3>Question 9</h3>
         <!-- Agreeableness + -->
-        <h4>I prefer peaceful relationships - no yelling or biting.</h4>
+        <h4>I prefer harmonioius relationships - why fight .</h4>
         <select id="q9">
             <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
@@ -161,7 +176,7 @@
        
         <h3>Question 10</h3>
         <!-- Neuroticism + -->
-        <h4>I need to know what's going on around my home.</h4>
+        <h4>I have to know what's going on around my home at all times.</h4>
         <select id="q10">
             <option value="Select Answer"></option>
             <option value="5">5 (Strongly Agree)</option>
@@ -184,7 +199,7 @@
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Congratulations! You have been matched!</h4>
-                    </div>
+                    </div> <!-- /.modal-header -->
                     <div class="modal-body">
 
 						<h3 id="friend-name"></h3>
@@ -192,16 +207,13 @@
 						<img src="" alt="friend's picture" id="friend-pic" align="middle">
 						<p>You are <span id="friend-compat"></span> compatible!!!</p>
 
-                    </div>
+                    </div> <!-- /.modal-body -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
+                        <button type="button" class="btn btn-default" data-dismiss="modal" id="print">Print to Console</button>
+                    </div> <!-- /.modal-footer -->
+                </div> <!-- /.modal-content -->
+            </div> <!-- /.modal-dialog -->
+        </div> <!-- /.modal -->
         
         <footer class="footer">
             <a href="/api/friends">API Breeds List</a> | <a href="https://github.com/jonchr/friend-finder">GitHub Repo</a>
@@ -213,40 +225,84 @@
     </div>
     
     <script type="text/javascript">
+
     // When the submit button is clicked, submits the entry to the server, and creates a modal with the returned response
     $("#submit").on("click", function(event) {
 
         event.preventDefault();
 
+    	//Checks and requires they submit at least their name, breed, and pic
+    	if ($("#name").val().trim() === "") {
+    		alert("Please enter your name.");
+    		return;
+    	}
+    	else if ($("#breed").val().trim() === "") {
+    		alert("Please enter your breed.");
+    		return;
+    	}
+    	else if ($("#photo").val().trim() === "") {
+    		alert("Please enter a link to your photograph.");
+    		return;
+    	}
+
+        //Compiles the information in the form into an object to post to ther server
         var newEntry = {
             name: $("#name").val().trim(),
             breed: $("#breed").val().trim(),
             photo: $("#photo").val().trim(),
-            scores: [parseInt($("#q1").val()),
-                parseInt($("#q2").val()),
-                parseInt($("#q3").val()),
-                parseInt($("#q4").val()),
-                parseInt($("#q5").val()),
-                parseInt($("#q6").val()),
-                parseInt($("#q7").val()),
-                parseInt($("#q8").val()),
-                parseInt($("#q9").val()),
-                parseInt($("#q10").val())
+            scores: [$("#q1").val(),
+                     $("#q2").val(),
+                     $("#q3").val(),
+                     $("#q4").val(),
+                     $("#q5").val(),
+                     $("#q6").val(),
+                     $("#q7").val(),
+                     $("#q8").val(),
+                     $("#q9").val(),
+                     $("#q10").val()
             ]
         };
 
         console.log(newEntry);
 
         $.post("/api/friends", newEntry, function(data) {
+        	//Console logs the received data in the client
         	console.log(data);
+        	//Updates the information in the modal and displays it
             $("#friend-name").text(data.name);
             $("#friend-breed").text("Breed: " + data.breed);
             $("#friend-pic").attr("src", data.photo);
             $("#friend-compat").text(data.compatibility);
             $("#modal").modal();
+
+            //Updates global variables used for printing on the server
+            print = data;
+        	print.myName = newEntry.name;
         });
 
     });
+
+    //Hoisted variable to store match's information in case you want to print to the server console
+    var print;
+
+    //Allows the user to print their match's information to the server console.
+    $("#print").on("click", function() {
+
+    	//Compiles text and then passes to the server
+    	var message = [];
+    	message.push("-------------------------------------")
+    	message.push("Congratulations, " + print.myName + "!");
+    	message.push("You have been paired with " + print.name + ".");
+    	message.push("Here is their information:");
+    	message.push("  Breed: " + print.breed);
+    	message.push("  Photo: " + print.photo);
+    	message.push("  Compatibility with You: " + print.compatibility);
+    	
+    	//Posts to server, which will console log it
+    	$.post("/print", {message: message});
+
+    });
+
     </script>
 </body>
 
