@@ -1,5 +1,5 @@
 # Friend-Finder
-PawPal is an online application that helps you find your next four-legged friend. It is a full-stack application, and is live at https://radiant-shore-92391.herokuapp.com.
+PawPal is a full-stack application that helps you find your next four-legged friend. It is live at https://radiant-shore-92391.herokuapp.com.
 
 ## Description
 
