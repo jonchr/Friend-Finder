@@ -17,9 +17,7 @@ This repo can be cloned to your computer and accessed using the following comman
 		cd Friend-Finder
 		node server.js
 
-		The latest command will run the local server and will print the message "Running on PORT 3000" when completed
-		Once you receive this message, open "localhost:3000" in your browser
-		To stop the server, press Control-C while in your command prompt window
+The latest command will run the local server and will print the message "Running on PORT 3000" when completed. Once you receive this message, open "localhost:3000" in your browser. To stop the server, press Control-C while in your command prompt window.
 
 ## Screenshots
 ### You have been matched with Sasha!
